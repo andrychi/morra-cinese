@@ -24,8 +24,8 @@ public class LucaMorraCinese {
      */
     public static void main(String[] args) {
         // in quanti gicoatori volete giocare
-
         String nome = JOptionPane.showInputDialog("Qual'è il nome del giocatore?");
+
         // quanti tiri vuoi fare?
         String ntiri = JOptionPane.showInputDialog("A quanti punti vuoi arrivare? ");
         double tiri = Double.parseDouble(ntiri);
@@ -43,16 +43,15 @@ public class LucaMorraCinese {
             }
 
         } while (!(punti == tiri || puntipc == tiri));
+
+        String frasevincitore = "Congratulazioni " + nome + "! hai vinto !\nIl punteggio finale era: \nPC : " + puntipc + "\n" + nome + " : " + punti;
+        String fraseperdente = "Hai perso!\nIl punteggio finale era: \nPC : " + puntipc + "\n" + nome + " : " + punti;
         if (punti > puntipc) {
-            JOptionPane.showMessageDialog(null, "Congratulazioni! hai vinto !\nIl punteggio finale era: \nPC : " + puntipc + "\n" + nome + " : " + punti);
+            JOptionPane.showMessageDialog(null, frasevincitore);
         } else {
-            JOptionPane.showMessageDialog(null, "Hai perso!\nIl punteggio finale era: \nPC : " + puntipc + "\n" + nome + " : " + punti);
+            JOptionPane.showMessageDialog(null, fraseperdente);
         }
 
-        // dai un punteggio
-        // se pari vuoi fare la bella?
-        // ha vinto azzdragon
-        // vuoi fare un altra partita?
     }
 
     static String acaso() {
@@ -61,12 +60,12 @@ public class LucaMorraCinese {
         double tiropc = Math.random();
         if (tiropc <= 0.33) {
             pctiro = "F";
-        }
-        if (tiropc >= 0.66) {
-            pctiro = "C";
-        }
-        if (tiropc < 0.33 & tiropc > 0.66) {
-            pctiro = "S";
+        } else {
+            if (tiropc >= 0.66) {
+                pctiro = "C";
+            } else {
+                pctiro = "S";
+            }
         }
         return pctiro;
     }
