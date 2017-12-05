@@ -18,13 +18,14 @@ public class LucaMorraCinese {
     static String ris = "";
     static int punti = 0;
     static int puntipc = 0;
+    static String nome = "";
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // in quanti gicoatori volete giocare
-        String nome = JOptionPane.showInputDialog("Qual'è il nome del giocatore?");
+        nome = JOptionPane.showInputDialog("Qual'è il nome del giocatore?");
 
         // quanti tiri vuoi fare?
         String ntiri = JOptionPane.showInputDialog("A quanti punti vuoi arrivare? ");
@@ -55,8 +56,7 @@ public class LucaMorraCinese {
     }
 
     static String acaso() {
-        String pctiro = "";
-
+        
         double tiropc = Math.random();
         if (tiropc <= 0.33) {
             pctiro = "F";
@@ -80,35 +80,35 @@ public class LucaMorraCinese {
 
         //confrontare se sono uguali
         if (tiro.equals(pctiro)) {
-            ris = "Pari!";
+            ris = "Pari!\n" + nome + " ha tirato : " + tiro +"\nIl PC ha tirato : " + pctiro;
         } else {
             switch (tiro) {
 
                 case "F":
-                    if (pctiro == "C") {
-                        ris = "hai vinto te!";
-                        punti += 1;
+                    if (pctiro.equals("C")) {
+                        ris = "hai vinto te!\n" + nome + " ha tirato : " + tiro +"\nIl PC ha tirato : " + pctiro ;
+                        punti++;
                     } else {
-                        ris = "ha vinto il pc!";
-                        puntipc += 1;
+                        ris = "ha vinto il pc!\n" + nome + " ha tirato : " + tiro +"\nIl PC ha tirato : "+ pctiro ;
+                        puntipc++;
                     }
                     break;
                 case "C":
-                    if (pctiro == "F") {
-                        ris = "ha vinto il pc!";
-                        puntipc += 1;
+                    if (pctiro.equals("F")) {
+                        ris = "ha vinto il pc!\n" + nome + " ha tirato : " + tiro +"\nIl PC ha tirato : "+ pctiro ;
+                        puntipc++;
                     } else {
-                        ris = "hai vinto te!";
-                        punti += 1;
+                        ris = "hai vinto te!\n" + nome + " ha tirato : " + tiro +"\nIl PC ha tirato : "+ pctiro ;
+                        punti++;
                     }
                     break;
                 case "S":
-                    if (pctiro == "F") {
-                        ris = "hai vinto te!";
-                        punti += 1;
+                    if (pctiro.equals("F")) {
+                        ris = "hai vinto te!\n" + nome + " ha tirato : " + tiro +"\nIl PC ha tirato : "+ pctiro ;
+                        punti++;
                     } else {
-                        ris = "ha vinto il pc!";
-                        puntipc += 1;
+                        ris = "ha vinto il pc!\n" + nome + " ha tirato : " + tiro +"\nIl PC ha tirato : "+ pctiro ;
+                        puntipc++;
                     }
                     break;
 
